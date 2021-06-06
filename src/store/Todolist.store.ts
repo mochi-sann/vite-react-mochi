@@ -5,22 +5,24 @@ type Generation = {
   Name: string
 }
 
-const initialState: Generation = {
-  Name: ""
-}
+const initialState: Generation[] = [
+  {
+    Name: "aaaaaa"
+  }
+]
 
 export const generationSlice = createSlice({
   name: "さいとタイトル",
   initialState,
   reducers: {
     AddList: (state, action) => {
-      state.Name = action.payload
+      state.push({ Name: action.payload })
     }
   }
 })
 
 export const { AddList } = generationSlice.actions
 
-export const selectGeneration = (state: RootState) => state.Todolist
+export const TodoListGen = (state: RootState) => state.Todolist
 
 export default generationSlice.reducer
