@@ -17,11 +17,14 @@ export const generationSlice = createSlice({
   reducers: {
     AddList: (state, action) => {
       state.push({ Name: action.payload })
+    },
+    RemoveList: (state, action) => {
+      state.splice(action.payload, 1)
     }
   }
 })
 
-export const { AddList } = generationSlice.actions
+export const { AddList, RemoveList } = generationSlice.actions
 
 export const TodoListGen = (state: RootState) => state.Todolist
 
