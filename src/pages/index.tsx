@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import logo from "../images/logo.svg"
 import "../style/App.css"
+import ToDo from "../components/ToDo"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
             count is: {count}
           </button>
         </p>
+        <ToDo />
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
         </p>
