@@ -5,7 +5,13 @@ import Button from "@material-ui/core/Button"
 // import { Button as BootStrapButton } from "react-bootstrap"
 import Box from "@material-ui/core/Box"
 import { Helmet } from "react-helmet"
-import { TodoListGen, AddList, RemoveList } from "../store/Todolist.store"
+import { Checkbox } from "@material-ui/core"
+import {
+  TodoListGen,
+  AddList,
+  RemoveList,
+  CheckToDo
+} from "../store/Todolist.store"
 import { SetAppBarName, TitleGen } from "../store/Title.store"
 
 const useStyles = makeStyles({
@@ -14,7 +20,7 @@ const useStyles = makeStyles({
     border: 0,
     borderRadius: 3,
     boxShadow: "0 3px 5px 2px #130CB766",
-    color: "white",
+    // color: "white",
     height: 48,
     padding: "0 30px",
     marginTop: "20px"
@@ -28,7 +34,7 @@ const ToDo: React.VFC = () => {
 
   const dispatch = useDispatch()
 
-  dispatch(SetAppBarName("Home"))
+  dispatch(SetAppBarName("DODO List"))
   return (
     <div>
       <Helmet>
@@ -71,7 +77,22 @@ const ToDo: React.VFC = () => {
               className="border-4 border-gray-800 mt-2 p-4 border-opacity-100 flex"
               key={index}
             >
-              <h2 className="text-xl p-2">{value.Name}</h2>
+              <Checkbox
+                checked={value.Done}
+                color="primary"
+                onChange={(e) => {
+                  console.log(e.target.checked)
+                  dispatch(CheckToDo({ Done: e.target.checked, Number: index }))
+                }}
+              />
+              <h2
+                className={
+                  "text-xl text-black  p-2  " +
+                  (value.Done ? "line-through" : "")
+                }
+              >
+                {value.Name}
+              </h2>
               <div className="flex-auto "></div>
               <button
                 className="focus:ring-4 mt-2 p-4 rounded-md  transition duration-150 focus:ring-indigo-300 bg-indigo-600 w-20 mx-2"
@@ -80,7 +101,7 @@ const ToDo: React.VFC = () => {
                   dispatch(RemoveList(index))
                 }}
               >
-                完了
+                削除
               </button>
             </Box>
           </>

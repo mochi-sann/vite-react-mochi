@@ -5,11 +5,11 @@ import Typography from "@material-ui/core/Typography"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 
 import Toolbar from "@material-ui/core/Toolbar"
-import Box from "@material-ui/core/Box"
 
-import Button from "@material-ui/core/Button"
 import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
+import { useSelector } from "react-redux"
+import { TitleGen } from "../store/Title.store"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,9 +34,10 @@ export type Props = {
 
 const Layout: React.VFC<Props> = (props) => {
   const classes = useStyles()
+  const SiteTitle = useSelector(TitleGen)
 
   return (
-    <div className="bg-gray-900	min-h-screen">
+    <div className="	min-h-screen">
       <AppBar className={classes.appbar} position="sticky">
         <Toolbar>
           <IconButton
@@ -48,12 +49,12 @@ const Layout: React.VFC<Props> = (props) => {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6">
-            Home
+            {SiteTitle.AppBarName || "Home"}
           </Typography>
         </Toolbar>
       </AppBar>
 
-      <div className="max-w-screen-md	m-auto text-white">{props.children}</div>
+      <div className="max-w-screen-md	m-auto ">{props.children}</div>
     </div>
   )
 }
