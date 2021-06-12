@@ -3,20 +3,17 @@ import { RootState } from "./store"
 
 type Generation = {
   Name: string
+  Done: boolean
 }
 
-const initialState: Generation[] = [
-  {
-    Name: "aaaaaa"
-  }
-]
+const initialState: Generation[] = []
 
 export const generationSlice = createSlice({
   name: "さいとタイトル",
   initialState,
   reducers: {
     AddList: (state, action) => {
-      state.push({ Name: action.payload })
+      state.push({ Name: action.payload, Done: false })
     },
     RemoveList: (state, action) => {
       state.splice(action.payload, 1)

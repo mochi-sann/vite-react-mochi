@@ -2,18 +2,21 @@ import React, { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { makeStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
+// import { Button as BootStrapButton } from "react-bootstrap"
+import Box from "@material-ui/core/Box"
+import { Helmet } from "react-helmet"
 import { TodoListGen, AddList, RemoveList } from "../store/Todolist.store"
 
 const useStyles = makeStyles({
   root: {
-    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    background: "linear-gradient( 135deg, #52E5E7 10%, #130CB7 100%)",
     border: 0,
     borderRadius: 3,
-    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+    boxShadow: "0 3px 5px 2px #130CB766",
     color: "white",
     height: 48,
     padding: "0 30px",
-    marginTop: "8px"
+    marginTop: "20px"
   }
 })
 const ToDo: React.VFC = () => {
@@ -25,6 +28,9 @@ const ToDo: React.VFC = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>TODOリスト</title>
+      </Helmet>
       <p>TODO</p>
       <div>
         <input
@@ -58,8 +64,8 @@ const ToDo: React.VFC = () => {
       {ToDoList.map((value, index) => {
         return (
           <>
-            <div
-              className="border-4 border-gray-800 mt-2 py-4 border-opacity-100 flex"
+            <Box
+              className="border-4 border-gray-800 mt-2 p-4 border-opacity-100 flex"
               key={index}
             >
               <h2 className="text-xl p-2">{value.Name}</h2>
@@ -73,7 +79,7 @@ const ToDo: React.VFC = () => {
               >
                 完了
               </button>
-            </div>
+            </Box>
           </>
         )
       })}
