@@ -40,14 +40,6 @@ const Layout: React.VFC<Props> = (props) => {
     <div className="	min-h-screen">
       <AppBar className={classes.appbar} position="sticky">
         <Toolbar>
-          <IconButton
-            aria-label="menu"
-            className={classes.menuButton}
-            color="inherit"
-            edge="start"
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography className={classes.title} variant="h6">
             {SiteTitle.AppBarName || "Home"}
           </Typography>
