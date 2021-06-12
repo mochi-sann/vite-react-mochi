@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button"
 import Box from "@material-ui/core/Box"
 import { Helmet } from "react-helmet"
 import { TodoListGen, AddList, RemoveList } from "../store/Todolist.store"
+import { SetAppBarName, TitleGen } from "../store/Title.store"
 
 const useStyles = makeStyles({
   root: {
@@ -21,15 +22,17 @@ const useStyles = makeStyles({
 })
 const ToDo: React.VFC = () => {
   const ToDoList = useSelector(TodoListGen)
+  const SiteTitle = useSelector(TitleGen)
   const [InputValue, setInputValue] = useState("")
   const classes = useStyles()
 
   const dispatch = useDispatch()
 
+  dispatch(SetAppBarName("Home"))
   return (
     <div>
       <Helmet>
-        <title>TODOリスト</title>
+        <title>{SiteTitle.Name || "Todoりすと"}</title>
       </Helmet>
       <p>TODO</p>
       <div>

@@ -9,7 +9,7 @@ type Generation = {
 const initialState: Generation[] = []
 
 export const generationSlice = createSlice({
-  name: "さいとタイトル",
+  name: "Todo List",
   initialState,
   reducers: {
     AddList: (state, action) => {

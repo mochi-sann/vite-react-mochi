@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
+import Title from "./Title.store"
 import Todolist from "./Todolist.store"
 
 export const store = configureStore({
   reducer: {
-    Todolist: Todolist
+    Todolist: Todolist,
+    Title: Title
   }
 })
 
