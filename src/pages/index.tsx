@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 const ToDo: React.VFC = () => {
   const SiteTitle = useSelector(TitleGen)
   const [InputValue, setInputValue] = useState("")
-  const classes = useStyles()
+  // const classes = useStyles()
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -38,30 +38,19 @@ const ToDo: React.VFC = () => {
       </Helmet>
 
       <div>
-        {/* <input
-          className="text-black w-full	"
-          onChange={(e) => {
-            setInputValue(e.target.value)
-          }}
-          type="text"
-          value={InputValue}
-        /> */}
-        <TextField
-          className=" w-full	"
-          id="outlined-basic"
-          label="new TODO"
+        <input
+          className=" flex-1 appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-900 placeholder-gray-400 shadow-md rounded-lg text-base focus:outline-none focus:ring-4 focus:ring-indigo-300  focus:border-transparent ring-2	ring-gray-800 transition  duration-200"
+          id="outlined-basic "
+          // label="new TODO"
           onChange={(e) => {
             setInputValue(e.target.value)
           }}
           value={InputValue}
-          variant="outlined"
+          // variant="outlined"
         />
 
-        <Button
-          className={
-            classes.root +
-            " focus:ring-4 w-full  p-4 rounded-md  transition duration-150  bg-indigo-600	"
-          }
+        <button
+          className="mt-4 focus:ring-4 w-full  p-4 rounded-md  transition duration-150  bg-green-500		"
           color="primary"
           onClick={() => {
             if (!InputValue) {
@@ -71,11 +60,9 @@ const ToDo: React.VFC = () => {
             console.log(InputValue)
             setInputValue("")
           }}
-          size="large"
-          variant="contained"
         >
           追加
-        </Button>
+        </button>
       </div>
       <ToDoLists />
     </div>

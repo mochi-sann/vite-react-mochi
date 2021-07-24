@@ -3,8 +3,8 @@ import "../style/App.scss"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 
 import Layout from "../components/Layout"
-import ToDo from "./ToDo"
 import TextPage from "./testPage"
+import ToDo from "."
 
 function App() {
   return (
