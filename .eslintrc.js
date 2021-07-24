@@ -7,6 +7,7 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:react-hooks/recommended",
     "prettier"
   ],
   plugins: ["@typescript-eslint", "react", "import" /*"simple-import-sort"*/],
@@ -34,6 +35,8 @@ module.exports = {
     tsconfigRootDir: "."
   },
   rules: {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "sort-imports": 0,
     "import/newline-after-import": ["error", { count: 1 }],
     "import/order": [

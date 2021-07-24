@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 
 import Layout from "../components/Layout"
 import TextPage from "./testPage"
+import RecoilTODO from "./recoilTODO"
 import ToDo from "."
 
 function App() {
@@ -14,6 +15,9 @@ function App() {
           <Switch>
             <Route path="/test">
               <TextPage />
+            </Route>
+            <Route path="/recoilTODO">
+              <RecoilTODO />
             </Route>
             <Route path="/">
               <ToDo />

@@ -41,16 +41,14 @@ const ToDos: React.VFC = () => {
                 {value.Name}
               </h2>
               <div className="flex-auto "></div>
-              <Buttons>ぼたん</Buttons>
-              <button
-                className="focus:ring-4 mt-2 p-4 rounded-md  transition duration-150 focus:ring-indigo-300 bg-indigo-600 w-20 mx-2"
+              <Buttons
                 onClick={() => {
                   console.log("削除", index)
                   dispatch(RemoveList(index))
                 }}
               >
                 削除
-              </button>
+              </Buttons>
             </div>
           </>
         )

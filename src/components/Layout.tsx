@@ -1,6 +1,7 @@
 import React from "react"
 
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 import { TitleGen } from "../store/Title.store"
 
 export type Props = {
@@ -18,6 +19,19 @@ const Layout: React.VFC<Props> = (props) => {
           <h1 className="font-bold text-3xl self-center px-4">
             {SiteTitle.AppBarName || "Home"}
           </h1>
+          <div className="w-full"></div>
+          <div className="flex space-x-2 self-center ">
+            <div className="text-blue-400 place-self flex">
+              <Link className="self-center h-full" to="/">
+                Main
+              </Link>
+            </div>
+            <div className="text-blue-400 self-center flex">
+              <Link className="self-center h-full" to="/recoilTODO">
+                recoilTODO
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
       <div className="max-w-screen-md	m-auto px-2">{props.children}</div>
