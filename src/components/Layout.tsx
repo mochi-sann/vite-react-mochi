@@ -16,10 +16,10 @@ const Layout: React.VFC<Props> = (props) => {
     <div className="min-h-screen">
       <div className="bg-white mb-4 shadow   h-[55px]  px-full">
         <div className="max-w-screen-md h-full flex m-[auto]">
-          <h1 className="font-bold text-3xl self-center px-4">
+          <h1 className="font-bold text-3xl self-center px-4 w-full  text-left">
             {SiteTitle.AppBarName || "Home"}
           </h1>
-          <div className="w-full"></div>
+          {/* <div className="w-full"></div> */}
           <div className="flex space-x-2 self-center ">
             <div className="text-blue-400 place-self flex">
               <Link className="self-center h-full" to="/">

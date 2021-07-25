@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux"
 
 import { Helmet } from "react-helmet"
 import { SiAddthis } from "react-icons/si"
-
 import {
   RecoilRoot,
   atom,
@@ -15,6 +14,7 @@ import { AddList } from "../store/Todolist.store"
 import { SetAppBarName, TitleGen } from "../store/Title.store"
 
 import { TodoListState } from "../recoil/Todos.atom"
+import RecoilToDos from "../components/RecoilToDos"
 
 const ToDo: React.VFC = () => {
   const SiteTitle = useSelector(TitleGen)
@@ -30,7 +30,7 @@ const ToDo: React.VFC = () => {
   const [text, setText] = useRecoilState(TodoListState)
 
   return (
-    <div>
+    <div >
       <Helmet>
         <title>{SiteTitle.Name || "TRecoil odoりすと"}</title>
       </Helmet>
@@ -64,6 +64,9 @@ const ToDo: React.VFC = () => {
         </button>
       </div>
       <p>{JSON.stringify(text)}</p>
+      {text.map((todo, key) => (
+        <RecoilToDos done={todo.Done} key={key} text={todo.Name} />
+      ))}
       {/* <ToDoLists /> */}
     </div>
   )

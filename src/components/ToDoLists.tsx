@@ -32,14 +32,14 @@ const ToDos: React.VFC = () => {
                 }}
                 type="checkbox"
               />
-              <h2
+              <p
                 className={
-                  "text-xl text-black  p-2  transition duration-200 " +
+                  "text-xl text-black  p-2  transition duration-200 break-all " +
                   (value.Done ? "line-through text-gray-500	" : "")
                 }
               >
                 {value.Name}
-              </h2>
+              </p>
               <div className="flex-auto "></div>
               <Buttons
                 onClick={() => {
