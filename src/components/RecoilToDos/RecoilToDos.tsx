@@ -2,7 +2,6 @@ import React from "react"
 
 export type Props = { text: string; done: boolean }
 import styled from "styled-components"
-import { Button as ChakraButton, ButtonGroup } from "@chakra-ui/react"
 
 const Button = styled.button`
   color: #1d1d1d;
@@ -11,7 +10,7 @@ const Button = styled.button`
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
-  
+
   /* border: 2px solid #000000; */
   border-radius: 3px;
   transition: 100ms ease-in-out;
@@ -31,7 +30,7 @@ const RecoilToDos: React.VFC<Props> = (props) => {
       >
         {props.text}
       </p>
-      <ChakraButton colorScheme="blue">Button</ChakraButton>
+
       <Button className="flex-shrink-0">削除するねん</Button>
     </div>
   )
