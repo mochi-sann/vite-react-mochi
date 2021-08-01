@@ -1,18 +1,18 @@
-# node_modules
-# .next
-# dist
-# out
-# server/migration
-# server/index.js
-# server/lambda.js
-# server/lambda_migration.js
+node_modules
+.next
+dist
+out
+server/migration
+server/index.js
+server/lambda.js
+server/lambda_migration.js
 
-# public/workbox-*.js
-# public/sw.js
-# $relay.ts
+public/workbox-*.js
+public/sw.js
+$relay.ts
 
 
-# public/workbox-*.js
-# public/workbox-*.js.map
-# public/sw.js
-# public/sw.js.map
+public/workbox-*.js
+public/workbox-*.js.map
+public/sw.js
+public/sw.js.map

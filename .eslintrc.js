@@ -10,7 +10,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "prettier"
   ],
-  plugins: ["@typescript-eslint", "react", "import" /*"simple-import-sort"*/],
+  plugins: ["@typescript-eslint", "react", "import", "cypress"],
   parser: "@typescript-eslint/parser",
   env: {
     browser: true,
@@ -35,6 +35,7 @@ module.exports = {
     tsconfigRootDir: "."
   },
   rules: {
+    "no-undef": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "sort-imports": 0,
