@@ -23,7 +23,7 @@ const Layout: React.VFC<Props> = (props) => {
           <div className="flex space-x-2 self-center ">
             <div className="text-blue-400 place-self flex">
               <Link className="self-center h-full" to="/">
-                Main
+                Redux
               </Link>
             </div>
             <div className="text-blue-400 self-center flex">

@@ -22,15 +22,13 @@ const ToDo: React.VFC = () => {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    return () => {
-      dispatch(SetAppBarName("DODO List in Recoil"))
-    }
+    dispatch(SetAppBarName("TODO List in Recoil"))
   }, [])
 
   const [text, setText] = useRecoilState(TodoListState)
 
   return (
-    <div >
+    <div>
       <Helmet>
         <title>{SiteTitle.Name || "TRecoil odoりすと"}</title>
       </Helmet>
