@@ -1,0 +1,71 @@
+name: Node.js CI
+
+on:
+  push:
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    # 走らせる環境
+    strategy:
+      matrix:
+        # os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest]
+        node: [15.x]
+    # yarn install を走らす
+    steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # All history
+      - name: cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            packages/*/node_modules
+            distributions/*/node_modules
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+      - name: install
+        run: yarn --check-files --frozen-lockfile --non-interactive
+      - name: cache workspace
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            packages/*/node_modules
+            distributions/*/node_modules
+            packages/*/dist
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-nuxt-${{ github.sha }}
+
+  # cypressのテストを走らす
+  cypress-run:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest]
+        node: [14.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Cypress のテストを走らせる
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: yarn build
+          start: yarn serve --port 3000
+      # Cypress実行時に生成されたビデオとスクリーンショットを保存できる
+      # 参考: https://github.com/cypress-io/github-action#artifacts
+      - name: get Cypress Videos
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Cypress E2E Videos
+          path: cypress/videos
+    needs: setup
