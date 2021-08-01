@@ -6,7 +6,10 @@
     "build": "tsc && vite build",
     "serve": "vite preview",
     "lint": "eslint --ext .ts,.js,.tsx . && prettier --check \"./**/*.ts\"",
-    "lint:fix": "eslint --ext .ts,.js,.tsx . --fix && prettier --write \"./**/*.(ts|tsx|js)\""
+    "lint:fix": "eslint --ext .ts,.js,.tsx . --fix && prettier --write \"./**/*.(ts|tsx|js)\"",
+    "preview": "vite preview",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open "
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.5",
@@ -16,6 +19,7 @@
     "@material-ui/icons": "^4.11.2",
     "@reduxjs/toolkit": "^1.5.1",
     "bootstrap": "4.6.0",
+    "cypress": "^8.1.0",
     "framer-motion": "^4",
     "react": "^17.0.0",
     "react-bootstrap": "^1.6.1",

@@ -3,13 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 
 import { Helmet } from "react-helmet"
 import { SiAddthis } from "react-icons/si"
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue
-} from "recoil"
+import { useRecoilState } from "recoil"
 import { AddList } from "../store/Todolist.store"
 import { SetAppBarName, TitleGen } from "../store/Title.store"
 
