@@ -2,6 +2,8 @@ name: Node.js CI
 
 on:
   push:
+  pull_request:
+    branches: [main]
 
 jobs:
   setup:
@@ -43,6 +45,7 @@ jobs:
             packages/*/dist
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-nuxt-${{ github.sha }}
 
+  
   # cypressのテストを走らす
   cypress-run:
     runs-on: ubuntu-latest
