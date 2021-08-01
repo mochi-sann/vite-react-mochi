@@ -3,13 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 
 import { Helmet } from "react-helmet"
 import { SiAddthis } from "react-icons/si"
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue
-} from "recoil"
+import { useRecoilState } from "recoil"
 import { AddList } from "../store/Todolist.store"
 import { SetAppBarName, TitleGen } from "../store/Title.store"
 
@@ -22,15 +16,13 @@ const ToDo: React.VFC = () => {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    return () => {
-      dispatch(SetAppBarName("DODO List in Recoil"))
-    }
+    dispatch(SetAppBarName("TODO List in Recoil"))
   }, [])
 
   const [text, setText] = useRecoilState(TodoListState)
 
   return (
-    <div >
+    <div>
       <Helmet>
         <title>{SiteTitle.Name || "TRecoil odoりすと"}</title>
       </Helmet>

@@ -14,9 +14,7 @@ const ToDo: React.VFC = () => {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    return () => {
-      dispatch(SetAppBarName("DODO List"))
-    }
+    dispatch(SetAppBarName("TODO List in Redux"))
   }, [])
   return (
     <div>
